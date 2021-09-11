@@ -1,0 +1,13 @@
+#hangman word groups
+
+animals = ['koala','tiger','aardvark','ostrich','elephant','velociraptor','python','rhino','giraffe','buffalo','lemur','penguin']
+
+countries = ['mexico','germany','canada','france','spain','portugal','china','russia','turkey','brazil','argentina','japan','chad']
+
+states = ['illinois','mississippi','texas','colorado','california','georigia','florida','connecticut','maine','wyoming','nevada','utah']
+
+shows = ['deathnote','community','naruto','all american','outer_banks','breaking_bad','bates_motel','demon_slayer','code_geass','tokyo_ghoul']
+
+songs = ['empty','cigarettes','stranger','stargazing','goblin','moonlight','personification','ration','cake','slasher','feline','confide']
+                     
+

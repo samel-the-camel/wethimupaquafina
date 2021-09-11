@@ -1,0 +1,101 @@
+#this will be the new and improved hangman
+#it will show a list of previously guessed letters in alphabetical order
+#it will account for all instances of the guessed letter in the given word if there are multiple
+import hangmanwordlists
+import random
+def hangman():
+        group_list = [hangmanwordlists.animals,hangmanwordlists.countries,hangmanwordlists.states,hangmanwordlists.shows,hangmanwordlists.songs]
+        randnum = random.randint(0,4)
+        wordgroup = group_list[randnum]
+        wordnum = random.randint(0,len(wordgroup))
+        word = wordgroup[wordnum]
+        word = list(word)
+        final = wordgroup[wordnum]
+        stages = [
+              "___________",
+              "|    |   ",
+              "|    |    ",
+              "|    0    ",
+              "|   /|\   ",
+              "|   / \   ",
+              "|_________",
+                  ]
+        wrong = 0
+        
+        def hint(group_number):
+                 if group_number == 0:
+                         x = print('Hint: It\'s an animal!')
+                         return x
+                         
+                       
+                 elif group_number == 1:
+                         x = print('Hint: It\'s a country!')
+                         return x
+                         
+                         
+                 elif group_number == 2:
+                         x = print('Hint: It\'s a state!')
+                         return x
+                         
+                 elif group_number == 3:
+                         x = print('Hint: It\'s a TV show!')
+                         return x
+                         
+                 elif group_number == 4:
+                         x = print('Hint: It\'s a song!')
+                         return x
+                         
+                
+
+        
+
+                         
+        win = False
+        letterlist = list(word)
+        board = ['__ '] * len(word)
+        wrong_guesses = []
+        print('Welcome to hangmanV2!')
+        print('Guess letters to prevent the hangman from dying. You win if you figure out the word before hangman\'s body is fully hung!')
+        if '_' in word:
+                x = word.index('_')
+                board[x] = '  '
+        while wrong<len(stages):
+            print ('\n')
+            msg = 'Guess a letter!'
+            char = input(msg)
+            char = char.strip()
+
+            char = char.lower()
+            if char in word:
+                for letter in word:
+                    if letter == char:
+                        cind = word.index(char)
+                        board[cind]=char
+                        word[cind] = '?'
+                    else:
+                        continue
+            elif char in wrong_guesses:
+                print('You already guessed that one. Try a different letter!')
+                print('Already guessed:'+str(wrong_guesses))
+            else:
+                wrong += 1
+                wrong_guesses.append(char)
+                wrong_guesses.sort()
+            print('\n')
+            print('Already guessed:'+str(wrong_guesses)) 
+            print(hint(randnum))
+            print('\n')
+            print('\n')
+            print(''.join(board))
+            print('\n'.join(stages[0:wrong]))
+            if '__ ' not in board:
+                print('Congratulations! Hangman has been saved and you win!')
+                win = True
+                break
+            else:
+                continue
+        if not win:
+            print('Too bad, hangman died and it\'s all your fault. The word you failed to figure out was {}.'.format(final))
+            stages[3] = "|   (X)    "
+
+            print('\n'.join(sta

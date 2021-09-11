@@ -1,0 +1,23 @@
+#awesome perfect pyglatin
+
+
+def pyggy():
+    g = input('Enter your PygLatin phrase(or enter q to quit the translator):')
+    sentence = []
+    while g != 'q':
+        newg = g.split()
+        for word in newg:
+            a = word[0]
+            b = word[1:]
+            c = 'ay'
+            nword = b + a + c
+            sentence.append(nword)
+        s = ' '
+        print(s.join(sentence))
+        return pyggy()
+    g = g.strip()
+    if g == 'q':
+        print('\n')
+        print('Thanks for coming! Enter \'pyggy()\' if you ever want to try the translator again!')
+
+
